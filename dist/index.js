@@ -2,3 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var Report_1 = require("./Report");
 exports.Report = Report_1.Report;
+var Page_1 = require("./Page");
+exports.Page = Page_1.Page;
+var ReportHeader_1 = require("./ReportHeader");
+exports.ReportHeader = ReportHeader_1.ReportHeader;
+var ReportFooter_1 = require("./ReportFooter");
+exports.ReportFooter = ReportFooter_1.ReportFooter;
+var PageBreak_1 = require("./PageBreak");
+exports.PageBreak = PageBreak_1.PageBreak;

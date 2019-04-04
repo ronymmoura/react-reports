@@ -36,9 +36,25 @@ var Report = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Report.prototype.render = function () {
-        var classes = classnames_1.default("report-page", this.props.size, this.props.orientation);
-        return (react_1.default.createElement("div", { className: "report-page-body" },
-            react_1.default.createElement("div", { className: classes }, this.props.children)));
+        var classes = classnames_1.default("report-page-body", this.props.size, this.props.orientation);
+        var headerHeight = 50;
+        var footerHeight = 50;
+        //const ReportHeader = 
+        return (react_1.default.createElement("div", { className: classes },
+            react_1.default.createElement("header", { style: { height: headerHeight }, className: "preview" }),
+            react_1.default.createElement("table", null,
+                react_1.default.createElement("thead", null,
+                    react_1.default.createElement("tr", null,
+                        react_1.default.createElement("td", null,
+                            react_1.default.createElement("div", { className: "page-header-space", style: { height: headerHeight } })))),
+                react_1.default.createElement("tbody", null,
+                    react_1.default.createElement("tr", null,
+                        react_1.default.createElement("td", null, this.props.children))),
+                react_1.default.createElement("tfoot", null,
+                    react_1.default.createElement("tr", null,
+                        react_1.default.createElement("td", null,
+                            react_1.default.createElement("div", { className: "page-footer-space", style: { height: footerHeight } }))))),
+            react_1.default.createElement("footer", { style: { height: footerHeight } })));
     };
     Report.defaultProps = {
         size: ReportSize.A4,

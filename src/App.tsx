@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Report, ReportHeader, Page, ReportFooter, PageBreak } from "@ronymmoura/react-reports";
+import { Report, ReportHeader, Page, ReportFooter, PageBreak } from "./components";
 
 class App extends Component {
 	render() {
@@ -50,6 +50,8 @@ class App extends Component {
                     </p>
                 </Page>
 
+                <PageBreak />
+
                 <Page>
                     <h3>
                         Example Section I
@@ -72,6 +74,8 @@ class App extends Component {
                         Nullam turpis augue, lacinia ut libero ac, rhoncus bibendum ligula. Mauris ullamcorper maximus turpis, a consequat turpis bibendum sit amet. Nam vitae dui nec velit hendrerit faucibus. Vivamus nunc diam, porta tristique augue nec, dignissim venenatis felis. Proin mattis id risus in feugiat. Etiam cursus faucibus nisi. In in nisi ullamcorper, convallis lectus et, ornare nulla. Cras tristique nulla eros, non maximus odio imperdiet eu. Nullam egestas dignissim est, et fringilla odio pretium eleifend. Nullam tincidunt sapien fermentum, rhoncus risus ac, ullamcorper libero.
                     </p>
                 </Page>
+
+                <PageBreak />
 
                 <Page>
                     <h3>Example Section II</h3>
@@ -81,6 +85,8 @@ class App extends Component {
                     </p>
                 </Page>
 
+                <PageBreak />
+
                 <Page>
                     <h3>
                         Example Section I
@@ -104,6 +110,8 @@ class App extends Component {
                     </p>
                 </Page>
 
+                <PageBreak />
+                
                 <Page>
                     <h3>Example Section II</h3>
                     <p>

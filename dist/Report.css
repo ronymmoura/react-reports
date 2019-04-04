@@ -1,0 +1,62 @@
+html, body {
+    width: 100%;
+    margin: 0;
+}
+
+.report-page-body {
+    background: rgb(204,204,204);
+}
+
+.report-page-body table {
+    width: 100%;
+}
+
+.page {
+    background: white;
+    display: block;
+    margin: 0 auto;
+    width: 21cm;
+    padding: 10mm;
+    margin-bottom: 0.5cm;
+    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+}
+
+footer {
+    bottom: 0;
+    width: 100%;
+}
+
+header {
+    top: 0;
+    width: 100%;
+}
+
+header, .page-header-space {
+    height: auto;
+}
+  
+footer, .page-footer-space {
+    height: auto;
+}
+
+.page-break {
+    break-after: page;
+}
+  
+@page {
+    margin: 10mm
+}
+
+@media print {
+    header { position: fixed; }
+    footer { position: fixed; }
+
+    thead {display: table-header-group;} 
+    tfoot {display: table-footer-group;}
+     
+    button {display: none;}
+     
+    body {margin: 0;}
+
+    .page{box-shadow: none; width: auto;}
+}
