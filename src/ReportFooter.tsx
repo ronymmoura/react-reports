@@ -8,7 +8,7 @@ interface Props {
 export class ReportFooter extends React.Component<Props> {
     render() {
         return (
-            <footer style={{ height: this.props.height }} className={"preview"}>
+            <footer style={{ height: this.props.height }}>
                 {this.props.children}
             </footer>
         );

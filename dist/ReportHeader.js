@@ -1,4 +1,3 @@
-"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -12,19 +11,15 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(require("react"));
+import React from "react";
 var ReportHeader = /** @class */ (function (_super) {
     __extends(ReportHeader, _super);
     function ReportHeader() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     ReportHeader.prototype.render = function () {
-        return (react_1.default.createElement("header", { style: { height: this.props.height }, className: "preview" }, this.props.children));
+        return (React.createElement("header", { style: { height: this.props.height } }, this.props.children));
     };
     return ReportHeader;
-}(react_1.default.Component));
-exports.ReportHeader = ReportHeader;
+}(React.Component));
+export { ReportHeader };

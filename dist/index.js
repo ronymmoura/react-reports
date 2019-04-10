@@ -1,12 +1,18 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var Report_1 = require("./Report");
-exports.Report = Report_1.Report;
-var Page_1 = require("./Page");
-exports.Page = Page_1.Page;
-var ReportHeader_1 = require("./ReportHeader");
-exports.ReportHeader = ReportHeader_1.ReportHeader;
-var ReportFooter_1 = require("./ReportFooter");
-exports.ReportFooter = ReportFooter_1.ReportFooter;
-var PageBreak_1 = require("./PageBreak");
-exports.PageBreak = PageBreak_1.PageBreak;
+import { Report } from "./Report";
+import { Page } from "./Page";
+import { ReportHeader } from "./ReportHeader";
+import { ReportFooter } from "./ReportFooter";
+import { PageBreak } from "./PageBreak";
+export { Report, Page, ReportHeader, ReportFooter, PageBreak };
+try {
+    var React = require("react");
+    var ReactDOM = require("react-dom");
+    var App = require("./test/App");
+    var ReportTest = require("./test/ReportTest");
+    if (App || ReportTest) {
+        App = App.default;
+        ReportTest = ReportTest.default;
+        ReactDOM.render(React.createElement(ReportTest, null), document.getElementById('root'));
+    }
+}
+catch (e) { }

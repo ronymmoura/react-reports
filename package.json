@@ -1,14 +1,14 @@
 {
 	"name": "@ronymmoura/react-reports",
-	"version": "0.0.1",
+	"version": "0.0.3",
 	"main": "./dist/index.js",
-    "source": "./src/index.tsx",
-    "types": "./types/index.d.ts",
+	"source": "./src/test/index.tsx",
+	"types": "./types/index.d.ts",
 	"author": {
 		"name": "Rony Moura",
 		"email": "ronymmoura@gmail.com"
 	},
-	"description": "React components to create reports",
+	"description": "【WIP】React components to create reports",
 	"readme": "https://github.com/ronymmoura/react-reports/blob/master/README.md",
 	"repository": {
 		"type": "git",
@@ -32,21 +32,24 @@
 	"license": "SEE LICENSE IN LICENSE",
 	"dependencies": {
 		"@types/classnames": "^2.2.7",
-        "@types/node": "11.12.0",
-        "@types/react": "16.8.10",
-        "@types/react-dom": "16.8.3",
+		"@types/node": "11.12.0",
+		"@types/react": "16.8.10",
+		"axios": "^0.18.0",
 		"classnames": "^2.2.6",
-        "react": "^16.8.6",
-        "react-dom": "^16.8.6",
-        "react-scripts": "2.1.8",
-		"typescript": "3.3.4000"
+		"react": "^16.8.6",
+		"react-scripts": "2.1.8",
+        "typescript": "^3.4.3"
+	},
+	"devDependencies": {
+		"@types/react-dom": "^16.8.3",
+		"bootstrap": "^4.3.1",
+		"gluegun": "^3.2.0",
+		"react-dom": "^16.8.6"
 	},
 	"scripts": {
-        "start": "react-scripts start",
-        "build": "yarn && yarn clean && tsc -d --declarationDir ./types && yarn copy",
-        "copy": "copy /Y src\\Report.css dist\\",
-        "clean": "rmdir /s /q types && rmdir /s /q dist",
-        "npm:publish": "yarn build && npm publish --access public"
+		"start": "react-scripts start",
+		"build": "node build.js",
+		"npm:publish": "yarn build && npm publish --access public"
 	},
 	"eslintConfig": {
 		"extends": "react-app"

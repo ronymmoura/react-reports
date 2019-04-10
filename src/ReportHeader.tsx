@@ -8,7 +8,7 @@ interface Props {
 export class ReportHeader extends React.Component<Props> {
     render() {
         return (
-            <header style={{ height: this.props.height }} className={"preview"}>
+            <header style={{ height: this.props.height }}>
                 {this.props.children}
             </header>
         );

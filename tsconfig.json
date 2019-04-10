@@ -14,19 +14,20 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "jsx": "preserve",
-    "allowJs": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "allowJs": true,
     "isolatedModules": true,
     "noEmit": true
   },
   "include": [
-    "src/**/*"
+    "src/index.tsx"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/test"
   ]
 }

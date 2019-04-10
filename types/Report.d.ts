@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNodeArray } from "react";
 import "./Report.css";
 export declare enum ReportSize {
     A3 = "A3",
@@ -12,13 +12,20 @@ export declare enum ReportOrientation {
 interface Props {
     size: ReportSize;
     orientation: ReportOrientation;
-    children: ReactNode;
+    children: ReactNodeArray;
 }
-export declare class Report extends React.Component<Props> {
+interface State {
+    downloading: boolean;
+}
+export declare class Report extends React.Component<Props, State> {
     static defaultProps: {
         size: ReportSize;
         orientation: ReportOrientation;
     };
+    state: {
+        downloading: boolean;
+    };
+    downloadPDF: () => Promise<void>;
     render(): JSX.Element;
 }
 export {};
