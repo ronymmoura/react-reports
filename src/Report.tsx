@@ -21,6 +21,7 @@ interface Props {
     size: ReportSize;
     orientation: ReportOrientation;
     children: ReactNodeArray;
+    preview: boolean;
 }
 
 interface State {
@@ -93,7 +94,7 @@ export class Report extends React.Component<Props, State> {
             });
 
         return (
-            <div className={classes}>
+            <div className={classes} style={{ display: this.props.preview ? "block" : "none" }}>
                 <table>
 					<thead>
 						<tr>
@@ -103,13 +104,13 @@ export class Report extends React.Component<Props, State> {
 						</tr>
 					</thead>
 					<tbody>
-                        <tr>
+                        {/* <tr>
                             <td className={"report-commands"}>
                                 <button className={"btn btn-primary"}>Imprimir</button>
                                 <button className={"btn btn-primary"} onClick={this.downloadPDF}>Baixar PDF</button>
                                 <button className={"btn btn-primary"}>Baixar XLSX</button>
                             </td>
-                        </tr>
+                        </tr> */}
 						<tr>
 							<td className={"report-content preview"}>
                                 {newChildren}

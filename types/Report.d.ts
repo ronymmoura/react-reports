@@ -13,6 +13,7 @@ interface Props {
     size: ReportSize;
     orientation: ReportOrientation;
     children: ReactNodeArray;
+    preview: boolean;
 }
 interface State {
     downloading: boolean;

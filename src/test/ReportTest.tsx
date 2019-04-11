@@ -21,9 +21,13 @@ const Celula = (props) => {
     );
 }
 
-export default class ReportTest extends Component {
+interface Props {
+    preview: boolean;
+}
 
-    private report = React.createRef<Report>();
+export default class ReportTest extends Component<Props> {
+
+    report = React.createRef<Report>();
 
     download = async () => {
         await this.report.current.downloadPDF();
@@ -31,7 +35,7 @@ export default class ReportTest extends Component {
 
 	render() {
 		return (
-			<Report ref={this.report}>
+			<Report ref={this.report} preview={this.props.preview}>
 
                 <ReportHeader height={100}>
                     <table>

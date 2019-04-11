@@ -85,14 +85,7 @@ var Report = /** @class */ (function (_super) {
             var pages, styles, html, relatorio, url, link;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: 
-                    //var body = document.getRootNode().childNodes[1].innerHTML;
-                    return [4 /*yield*/, this.setState({
-                            downloading: true
-                        })];
-                    case 1:
-                        //var body = document.getRootNode().childNodes[1].innerHTML;
-                        _a.sent();
+                    case 0:
                         pages = document.querySelector(".report-content");
                         styles = document.querySelector("head > style");
                         html = "\n            <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" \n                  integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n            <style>" + styles.innerHTML + "</style>\n        ";
@@ -103,7 +96,7 @@ var Report = /** @class */ (function (_super) {
                                 data: { html: html },
                                 url: "http://localhost/CageprevAPI/api/relatorios"
                             })];
-                    case 2:
+                    case 1:
                         relatorio = (_a.sent()).data;
                         url = window.URL.createObjectURL(new Blob([relatorio]));
                         link = document.createElement('a');
@@ -111,11 +104,6 @@ var Report = /** @class */ (function (_super) {
                         link.setAttribute('download', 'relatorio.pdf');
                         document.body.appendChild(link);
                         link.click();
-                        return [4 /*yield*/, this.setState({
-                                downloading: false
-                            })];
-                    case 3:
-                        _a.sent();
                         return [2 /*return*/];
                 }
             });
@@ -140,18 +128,13 @@ var Report = /** @class */ (function (_super) {
                 return child;
             }
         });
-        return (React.createElement("div", { className: classes },
+        return (React.createElement("div", { className: classes, style: { display: this.props.preview ? "block" : "none" } },
             React.createElement("table", null,
                 React.createElement("thead", null,
                     React.createElement("tr", null,
                         React.createElement("td", null,
                             React.createElement("div", { className: "page-header-space", style: { height: headerHeight } })))),
                 React.createElement("tbody", null,
-                    React.createElement("tr", null,
-                        React.createElement("td", { className: "report-commands" },
-                            React.createElement("button", { className: "btn btn-primary" }, "Imprimir"),
-                            React.createElement("button", { className: "btn btn-primary", onClick: this.downloadPDF }, "Baixar PDF"),
-                            React.createElement("button", { className: "btn btn-primary" }, "Baixar XLSX"))),
                     React.createElement("tr", null,
                         React.createElement("td", { className: "report-content preview" }, newChildren))),
                 React.createElement("tfoot", null,

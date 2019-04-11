@@ -12,7 +12,7 @@ try {
     if (App || ReportTest) {
         App = App.default;
         ReportTest = ReportTest.default;
-        ReactDOM.render(React.createElement(ReportTest, null), document.getElementById('root'));
+        ReactDOM.render(React.createElement(App, null), document.getElementById('root'));
     }
 }
 catch (e) { }
