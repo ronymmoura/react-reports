@@ -1,5 +1,7 @@
 const { print, filesystem, prompt, system, colors } = require('gluegun');
 
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
 (async () => {
     var package = JSON.parse(filesystem.read("./package.json"));
     var versao = package.version;
@@ -16,7 +18,8 @@ const { print, filesystem, prompt, system, colors } = require('gluegun');
         choices: [
             `${major + 1}.0.0`,
             `${major}.${minor + 1}.0`,
-            `${major}.${minor}.${build + 1}`
+            `${major}.${minor}.${build + 1}`,
+            `${major}.${minor}.${build}`
         ]
     });
 
