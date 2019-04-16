@@ -1,10 +1,20 @@
 import React, { ReactNodeArray, ReactNode } from "react";
 import className from "classnames";
-//import ReactDOMServer from "react-dom/server";
 import axios from "axios";
 
 import "./Report.css";
 import { ReportHeader, ReportFooter, Page } from ".";
+
+const readCssFile = () => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            var css = await fetch("./Report.css");
+            resolve(await css.text());
+        } catch(ex) {
+            reject(ex);
+        }
+    });
+}
 
 export enum ReportSize {
     A3 = "A3",
@@ -41,12 +51,12 @@ export class Report extends React.Component<Props, State> {
 
     downloadPDF = async () => {
         var pages = document.querySelector(".report-content");
-        var styles = document.querySelector("head > style");
+        var styles = await readCssFile();
         
         var html = `
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
                   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-            <style>${styles!.innerHTML}</style>
+            <style>${styles}</style>
         `;
 
         html = html + pages!.innerHTML;
@@ -55,7 +65,7 @@ export class Report extends React.Component<Props, State> {
             method: "POST",
             responseType: 'blob',
             data: { html },
-            url: "http://localhost/CageprevAPI/api/relatorios"
+            url: "http://10.10.170.11/CageprevAPI/api/relatorios"
         });
 
         const url = window.URL.createObjectURL(new Blob([relatorio]));

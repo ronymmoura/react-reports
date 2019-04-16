@@ -13,7 +13,7 @@ export default class App extends Component {
 		return (
             <div>
                 <button onClick={this.baixar}>Baixar</button>
-                <ReportTest ref={this.reportTest} preview={false} />
+                <ReportTest ref={this.reportTest} preview={true} />
             </div>
 		);
 	}

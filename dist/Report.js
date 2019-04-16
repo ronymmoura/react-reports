@@ -57,12 +57,36 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var _this = this;
 import React from "react";
 import className from "classnames";
-//import ReactDOMServer from "react-dom/server";
 import axios from "axios";
 import "./Report.css";
 import { ReportHeader, ReportFooter, Page } from ".";
+var readCssFile = function () {
+    return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
+        var css, _a, ex_1;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    _b.trys.push([0, 3, , 4]);
+                    return [4 /*yield*/, fetch("./Report.css")];
+                case 1:
+                    css = _b.sent();
+                    _a = resolve;
+                    return [4 /*yield*/, css.text()];
+                case 2:
+                    _a.apply(void 0, [_b.sent()]);
+                    return [3 /*break*/, 4];
+                case 3:
+                    ex_1 = _b.sent();
+                    reject(ex_1);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    }); });
+};
 export var ReportSize;
 (function (ReportSize) {
     ReportSize["A3"] = "A3";
@@ -87,16 +111,18 @@ var Report = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         pages = document.querySelector(".report-content");
-                        styles = document.querySelector("head > style");
-                        html = "\n            <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" \n                  integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n            <style>" + styles.innerHTML + "</style>\n        ";
+                        return [4 /*yield*/, readCssFile()];
+                    case 1:
+                        styles = _a.sent();
+                        html = "\n            <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" \n                  integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n            <style>" + styles + "</style>\n        ";
                         html = html + pages.innerHTML;
                         return [4 /*yield*/, axios({
                                 method: "POST",
                                 responseType: 'blob',
                                 data: { html: html },
-                                url: "http://localhost/CageprevAPI/api/relatorios"
+                                url: "http://10.10.170.11/CageprevAPI/api/relatorios"
                             })];
-                    case 1:
+                    case 2:
                         relatorio = (_a.sent()).data;
                         url = window.URL.createObjectURL(new Blob([relatorio]));
                         link = document.createElement('a');
